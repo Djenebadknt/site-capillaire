@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire - Guide Produits Cheveux</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Guide Produits Cheveux Texturés</h1>
+            <p class="subtitle">Répondez aux questions pour obtenir vos recommandations</p>
+        </header>
+
+        <div class="quiz-section" id="quiz">
+            <div class="question">
+                <h3>1. Quel est votre type de cheveux ?</h3>
+                <div class="options">
+                    <div class="option" data-question="type" data-value="3a">Type 3A (Boucles lâches)</div>
+                    <div class="option" data-question="type" data-value="3b">Type 3B (Boucles serrées)</div>
+                    <div class="option" data-question="type" data-value="3c">Type 3C (Boucles très serrées)</div>
+                    <div class="option" data-question="type" data-value="4a">Type 4A (Frisé en S)</div>
+                    <div class="option" data-question="type" data-value="4b">Type 4B (Frisé en Z)</div>
+                    <div class="option" data-question="type" data-value="4c">Type 4C (Très frisé)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Quelle est la porosité de vos cheveux ?</h3>
+                <div class="options">
+                    <div class="option" data-question="porosity" data-value="faible">Faible (cheveux brillants, produits restent en surface)</div>
+                    <div class="option" data-question="porosity" data-value="moyenne">Moyenne (équilibrés, retiennent bien l'hydratation)</div>
+                    <div class="option" data-question="porosity" data-value="haute">Haute (sèchent vite, absorbent rapidement)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. Quel est votre principal besoin ?</h3>
+                <div class="options">
+                    <div class="option" data-question="need" data-value="hydratation">Hydratation intense</div>
+                    <div class="option" data-question="need" data-value="definition">Définition des boucles</div>
+                    <div class="option" data-question="need" data-value="croissance">Stimuler la croissance</div>
+                    <div class="option" data-question="need" data-value="volume">Volume et légèreté</div>
+                </div>
+            </div>
+
+            <button class="btn" onclick="showResults()">Voir mes recommandations</button>
+        </div>
+
+        <div class="results" id="results">
+            <h2>Vos Produits Recommandés</h2>
+            <div id="productList"></div>
+            <a href="index1.html" class="btn restart-btn">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
