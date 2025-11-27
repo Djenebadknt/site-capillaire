@@ -1,4 +1,13 @@
-/* === STYLES GÉNÉRAUX === */
+/* --- Variables de couleur (pour changer facilement) --- */
+:root {
+    --color-background: #000000; /* Fond noir */
+    --color-text: #FFFFFF;       /* Texte blanc */
+    --color-accent: #D4AF37;     /* Le "jaune" / or de la photo */
+    --font-main-title: 'Times New Roman', Times, serif; /* Police élégante pour le titre */
+    --font-body: Arial, Helvetica, sans-serif;         /* Police simple pour le reste */
+}
+
+/* --- Réinitialisation et styles de base --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,276 +15,294 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    padding: 20px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    text-align: center;
 }
 
 .container {
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centre le contenu */
 }
 
-/* === HEADER === */
+/* --- Style de l'En-tête (Header) --- */
 header {
-    text-align: center;
-    color: white;
-    margin-bottom: 40px;
-    animation: fadeIn 1s ease-in;
+    padding: 30px 0;
+    border-bottom: 1px solid #333; /* Ligne de séparation */
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+header nav {
+    display: flex;
+    justify-content: space-between; /* Met le logo à gauche et le menu à droite */
+    align-items: center;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: semibold 400 italic;
+    font-family: playfair display;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 4px;
+    transition: color 0.3s ease; /* Animation de transition pour la couleur */
+}
+
+/* INTERACTIVITÉ : Le logo devient jaune au survol */
+.logo:hover {
+    color: var(--color-accent);
+}
+
+/* --- Style du Menu --- */
+.nav-menu {
+    display: flex;
+    list-style: none; /* Enlève les puces */
+}
+
+.nav-menu li {
+    margin-left: 40px;
+
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #b1adad; /* Gris clair pour les liens */
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    padding-bottom: 8px; /* Espace pour le petit trait en dessous */
+    position: relative; /* Nécessaire pour le trait */
+    transition: color 0.3s ease; /* Animation de transition */
+}
+
+/* INTERACTIVITÉ : Les liens du menu deviennent jaunes au survol */
+.nav-link:hover {
+    color: var(--color-accent);
+}
+
+/* INTERACTIVITÉ : Le petit trait jaune sous l'élément "actif" */
+.nav-link.active::after {
+    content: ''; /* Crée un pseudo-élément */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+
+/* --- Style du Contenu Principal (Hero) --- */
+.hero {
+    /* Met le contenu au centre de la page */
+    display: flex;
+    align-items: center;
+    height: 80vh; /* 80% de la hauteur de la fenêtre */
+    /* NOTE: Ajoutez votre image de fond ici. 
+      Le 'linear-gradient' ajoute un voile noir pour que le texte soit lisible.
+    */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('votre-image-de-fond.jpg');
+    background-size: cover;
+    background-position: center;
+   
 }
 
 .subtitle {
-    font-size: 1.2em;
-    opacity: 0.9;
+    color: var(--color-accent);
+    font-size: 12.5px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
-/* === PAGE D'ACCUEIL === */
-.welcome-section {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 30px;
+.hero h1 {
+    font-family: var(--font-main-title);
+    font-size: 95px;
+    font-weight: 400; /* Police plus fine */
+    color: var(--color-text);
+    margin: 10px 0 25px 0;
+    line-height: 1.1; /* Resserre les lignes */
+}
+.hero h1 .Arimo {
+    font-family: 'Arimo', sans-serif;
+    font-size: 100px;
+    color: var(--color-accent);
+}
+
+.description {
+    font-size: 18px;
+    color: #DDDDDD; /* Un blanc légèrement moins vif */
+   /* Limite la largeur du texte */
+    line-height: 1.6;
     text-align: center;
-    animation: slideUp 0.6s ease-out;
 }
 
-.welcome-section h2 {
-    color: #667eea;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.features-list {
-    list-style: none;
-    text-align: left;
-    max-width: 500px;
-    margin: 30px auto;
-    font-size: 1.1em;
-}
-
-.features-list li {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #f5f7fa;
-    border-radius: 10px;
-    border-left: 4px solid #667eea;
-}
-
-.info-text {
-    font-size: 1.1em;
-    color: #666;
-    margin: 20px 0;
-}
-
-/* === CARTES INFO === */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+/* --- Style du Bouton (CTA) --- */
+/* --- LE BOUTON FUSIONNÉ --- */
+.cta-button {
+    display: inline-block;
+    
+    /* STYLE (de votre Bouton 3) */
+    background-color: var(--color-accent);
+    color: var(--color-background); /* Texte noir */
+    padding: 15px 25px; /* Taille de votre Bouton 3 */
     margin-top: 30px;
+    text-decoration: none;
+    font-family: 'red hat display', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 15px; /* Arrondi de votre Bouton 3 */
+    cursor: pointer;
+
+    /* EFFET 1 (3D Press du Bouton 1) */
+    box-shadow: 0 9px #887123; /* L'ombre 3D (couleur de votre Bouton 3) */
+    
+    /* Vitesse des animations */
+    transition: background-color 0.3s ease, color 0.3s ease, 
+                box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.info-card {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+/* --- EFFET 2 (Flèche du Bouton 2) --- */
+/* Cible le <span> qu'on a ajouté dans le HTML */
+.cta-button span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s; /* Animation du texte qui glisse */
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
+/* La flèche (») cachée */
+.cta-button span:after {
+    content: '\00bb'; /* C'est le caractère '»' (flèche double) */
+    position: absolute;
+    opacity: 0; /* Cachée par défaut */
+    top: 0;
+    right: -20px; /* Commence 20px à droite */
+    transition: 0.5s; /* Animation de la flèche */
 }
 
-.info-card h3 {
-    color: #667eea;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+/* --- INTERACTIVITÉ AU SURVOL (HOVER) --- */
+.cta-button:hover {
+    /* Style de votre Bouton 3 : Le fond change */
+    background-color: var(--color-text); /* Devient blanc */
+    color: var(--color-background);     /* Texte noir */
 }
 
-.info-card p {
-    color: #666;
+/* Effet du Bouton 2 : Le texte se décale */
+.cta-button:hover span {
+    padding-right: 25px;
+}
+
+/* Effet du Bouton 2 : La flèche apparaît */
+.cta-button:hover span:after {
+    opacity: 1; /* Devient visible */
+    right: 0;   /* Se place à sa position finale */
+}
+
+/* --- INTERACTIVITÉ AU CLIC (ACTIVE) --- */
+/* Effet 1 (3D Press du Bouton 1) */
+.cta-button:active {
+    box-shadow: 0 5px #887123; /* L'ombre devient plus petite */
+    transform: translateY(4px); /* Le bouton "s'enfonce" */
+}
+
+
+
+/* --- Style de la nouvelle Section Collections --- */
+.collections {
+    background-color: var(--color-background); /* Garde le fond noir */
+    padding: 80px 0; /* Ajoute de l'espace en haut et en bas */
+    text-align: center; /* Centre tout le texte (titres, description) */
+    
+    /* Ajoute un trait de séparation avec la section du dessus */
+    border-top: 1px solid #333; 
+}
+
+/* Style pour le titre H2 de la section */
+.collections h2 {
+    font-family: var(--font-main-title); /* Police 'Lora' (serif) */
+    font-size: 56px; /* Un peu plus petit que le h1 principal */
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 10px 0 25px 0;
+}
+
+/* Style pour la description (on la centre et limite sa largeur) */
+.section-description {
+    font-size: 18px;
+    color: #DDDDDD;
+    max-width: 600px; /* Limite la largeur pour une meilleure lisibilité */
+    margin: 0 auto 50px auto; /* Centre le paragraphe et ajoute de l'espace en dessous */
     line-height: 1.6;
 }
 
-/* === SECTION QUIZ === */
-.quiz-section {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 30px;
-    animation: slideUp 0.6s ease-out;
+/* --- Conteneur pour les 2 rituels (en Flexbox) --- */
+.rituels-container {
+    display: flex; /* Aligne les éléments côte à côte */
+    justify-content: center; /* Centre les éléments horizontalement */
+    gap: 30px; /* Espace de 30px entre les deux rituels */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
 }
 
-.question {
-    margin-bottom: 30px;
+/* --- Style pour chaque rituel individuel --- */
+.rituel-item {
+    flex-basis: 45%; /* Chaque item prend environ 45% de la largeur */
+    min-width: 300px; /* Largeur minimale (utile pour le responsive) */
+    text-align: left; /* Aligne le texte du rituel à gauche (plus lisible) */
 }
 
-.question h3 {
-    color: #667eea;
+.rituel-item img {
+    width: 100%; /* L'image prend 100% de la largeur de son conteneur */
+    height: auto; /* Garde les proportions de l'image */
     margin-bottom: 15px;
-    font-size: 1.3em;
+    border: 1px solid #222; /* Petite bordure pour voir l'image placeholder */
 }
 
-.options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+.rituel-item h3 {
+    font-family: var(--font-main-title); /* Police 'Lora' (serif) */
+    font-size: 24px;
+    color: var(--color-text);
+    margin-bottom: 5px;
 }
 
-.option {
-    padding: 15px 20px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    background: white;
+.rituel-item p {
+    font-size: 16px;
+    color: #DDDDDD;
 }
 
-.option:hover {
-    border-color: #667eea;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+/* --- DÉBUT DES STYLES D'ANIMATION AU DÉFILEMENT --- */
+
+/* 1. L'état initial (caché, décalé, et avec la transition) */
+.js-scroll {
+    opacity: 0; /* Rendre invisible par défaut */
+    transform: translateY(40px); /* Décaler vers le bas de 40px */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Préparer l'animation */
 }
 
-.option.selected {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-color: #667eea;
+/* 2. L'état final (visible et à sa position normale) */
+.js-scroll.is-visible {
+    opacity: 1; /* Rendre complètement visible */
+    transform: translateY(0); /* Ramener à la position d'origine */
 }
 
-/* === BOUTONS === */
-.btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin: 30px auto 0;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    text-decoration: none;
-}
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
-}
-
-.restart-btn {
-    background: #764ba2;
-    display: block;
-    margin: 20px auto;
-}
-
-/* === RÉSULTATS === */
-.results {
-    display: none;
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: slideUp 0.6s ease-out;
-}
-
-.results.show {
-    display: block;
-}
-
-.results h2 {
-    color: #667eea;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.product-card {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-left: 5px solid #667eea;
-    transition: all 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.product-card h4 {
-    color: #667eea;
-    margin-bottom: 10px;
-    font-size: 1.3em;
-}
-
-.product-type {
-    display: inline-block;
-    background: #667eea;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-}
-
-.ingredients {
-    margin-top: 15px;
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-}
-
-.ingredients h5 {
-    color: #764ba2;
-    margin-bottom: 8px;
-}
-
-/* === ANIMATIONS === */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* === RESPONSIVE === */
+/* --- Styles Responsives (pour petits écrans) --- */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
+    .hero h1 {
+        font-size: 60px; /* Réduit la taille du titre */
     }
-    
-    .quiz-section, .results, .welcome-section {
-        padding: 25px;
+
+    .subtitle {
+        font-size: 10px; /* Réduit la taille du sous-titre */
     }
-    
-    .options {
-        grid-template-columns: 1fr;
+
+    .description {
+        font-size: 16px; /* Réduit la taille de la description */
     }
-    
-    .info-cards {
-        grid-template-columns: 1fr;
+
+    .nav-menu li {
+        margin-left: 20px; /* Réduit l'espacement du menu */
     }
 }
