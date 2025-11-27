@@ -2,44 +2,78 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    
+   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Dongle:wght@300;400;700&family=Momo+Trust+Display&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Produits Cheveux Texturés - Accueil</title>
+    <title>Araguaney Hair Care - Accueil</title>
+    
     <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>✨ Guide Produits Cheveux Texturés</h1>
-            <p class="subtitle">Trouvez les produits parfaits pour vos cheveux</p>
-        </header>
 
-        <div class="welcome-section">
-            <h2>Bienvenue !</h2>
-            <p>Ce guide vous aidera à trouver les meilleurs produits pour vos cheveux texturés en fonction de :</p>
-            <ul class="features-list">
-                <li>🌀 Votre type de cheveux (3A à 4C)</li>
-                <li>💧 Votre porosité capillaire</li>
-                <li>✨ Vos besoins spécifiques</li>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">ARAGUANEY</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#accueil" class="nav-link active">ACCUEIL</a></li>
+                <li><a href="#collections" class="nav-link">COLLECTIONS</a></li>
+                <li><a href="#notre-maison" class="nav-link">NOTRE MAISON</a></li>
+                <li><a href="#consultation" class="nav-link">CONSULTATION</a></li>
             </ul>
-            <p class="info-text">Répondez à quelques questions simples et obtenez des recommandations personnalisées !</p>
-            <a href="quiz.html" class="btn">Commencer le test</a>
-        </div>
+        </nav>
+    </header>
 
-        <div class="info-cards">
-            <div class="info-card">
-                <h3>🌀 Types de cheveux</h3>
-                <p>Découvrez votre type de boucles et frisures de 3A à 4C</p>
-            </div>
-            <div class="info-card">
-                <h3>💧 Porosité</h3>
-                <p>Comprenez comment vos cheveux absorbent l'hydratation</p>
-            </div>
-            <div class="info-card">
-                <h3>✨ Recommandations</h3>
-                <p>Recevez des conseils produits personnalisés</p>
+    <main class="hero">
+        <div class="container">
+            <p class="subtitle">BEAUTÉ DES CHEVEUX BOUCLÉS</p>
+            
+            <h1>Libérez Votre<br>
+                <span class="Arimo">Nature Unique</span>
+            </h1>
+            
+            <p class="description">
+                Célébrez la texture de vos cheveux avec des rituels sur mesure, conçus 
+                pour nourrir et définir chaque boucle.
+            </p>
+            
+            <a href="#consultation" class="cta-button">
+                <span>DÉCOUVRIR VOTRE RITUEL</span>
+            </a>
+        </div>
+    </main>
+
+    <section id="collections" class="collections">
+        <div class="container">
+            
+            <p class="subtitle js-scroll">NOS COLLECTIONS</p>
+            
+            <h2 class="js-scroll">Deux Rituels Essentiels</h2>
+            
+            <p class="section-description js-scroll">
+                Chaque rituel est pensé pour sublimer votre texture naturelle, avec des formules actives et des textures sensorielles.
+            </p>
+            
+            <div class="rituels-container">
+                
+                <div class="rituel-item js-scroll">
+                    <img src="https://placehold.co/600x400/111/FFF?text=Image+Rituel+1" alt="Gamme de soins rinçage">
+                    <h3>Gamme de soins rinçage</h3>
+                    <p>Shampoing, après-shampoing, masque</p>
+                </div>
+                
+                <div class="rituel-item js-scroll">
+                    <img src="https://placehold.co/600x400/111/FFF?text=Image+Rituel+2" alt="Gamme de soins après rinçage">
+                    <h3>Gamme de soins après rinçage</h3>
+                    <p>Crème, gelée, mousse</p>
+                </div>
+                
             </div>
         </div>
-    </div>
+    </section>
+
 </body>
-
 </html>
