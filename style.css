@@ -2,9 +2,9 @@
 :root {
     --color-background: #000000; /* Fond noir */
     --color-text: #FFFFFF;       /* Texte blanc */
-    --color-accent: #D4AF37;     /* Le "jaune" / or de la photo */
-    --font-main-title: 'Times New Roman', Times, serif; /* Police élégante pour le titre */
-    --font-body: Arial, Helvetica, sans-serif;         /* Police simple pour le reste */
+    --color-accent: #D4AF37;     /* Le "jaune" / or */
+    --font-main-title: 'Times New Roman', Times, serif; /* Police élégante */
+    --font-body: Arial, Helvetica, sans-serif;         /* Police simple */
 }
 
 /* --- Réinitialisation et styles de base --- */
@@ -41,15 +41,16 @@ header nav {
 
 .logo {
     font-size: 35px;
-    font-weight: semibold 400 italic;
-    font-family: playfair display;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Playfair Display', serif; /* Assure-toi que la police est bien chargée */
     color: var(--color-text);
     text-decoration: none;
     letter-spacing: 4px;
-    transition: color 0.3s ease; /* Animation de transition pour la couleur */
+    transition: color 0.3s ease;
 }
 
-/* INTERACTIVITÉ : Le logo devient jaune au survol */
+/* Le logo devient jaune au survol */
 .logo:hover {
     color: var(--color-accent);
 }
@@ -57,12 +58,11 @@ header nav {
 /* --- Style du Menu --- */
 .nav-menu {
     display: flex;
-    list-style: none; /* Enlève les puces */
+    list-style: none;
 }
 
 .nav-menu li {
     margin-left: 40px;
-
 }
 
 .nav-link {
@@ -71,19 +71,19 @@ header nav {
     font-size: 14px;
     font-weight: 100;
     letter-spacing: 1.5px;
-    padding-bottom: 8px; /* Espace pour le petit trait en dessous */
-    position: relative; /* Nécessaire pour le trait */
-    transition: color 0.3s ease; /* Animation de transition */
+    padding-bottom: 8px;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-/* INTERACTIVITÉ : Les liens du menu deviennent jaunes au survol */
+/* Les liens du menu deviennent jaunes au survol */
 .nav-link:hover {
     color: var(--color-accent);
 }
 
-/* INTERACTIVITÉ : Le petit trait jaune sous l'élément "actif" */
+/* Le petit trait jaune sous l'élément "actif" */
 .nav-link.active::after {
-    content: ''; /* Crée un pseudo-élément */
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -92,20 +92,15 @@ header nav {
     background-color: var(--color-accent);
 }
 
-
 /* --- Style du Contenu Principal (Hero) --- */
 .hero {
-    /* Met le contenu au centre de la page */
     display: flex;
     align-items: center;
-    height: 80vh; /* 80% de la hauteur de la fenêtre */
-    /* NOTE: Ajoutez votre image de fond ici. 
-      Le 'linear-gradient' ajoute un voile noir pour que le texte soit lisible.
-    */
+    height: 80vh;
+    /* N'oublie pas de mettre ta vraie image ici */
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('votre-image-de-fond.jpg');
     background-size: cover;
     background-position: center;
-   
 }
 
 .subtitle {
@@ -119,149 +114,167 @@ header nav {
 .hero h1 {
     font-family: var(--font-main-title);
     font-size: 95px;
-    font-weight: 400; /* Police plus fine */
+    font-weight: 400;
     color: var(--color-text);
     margin: 10px 0 25px 0;
-    line-height: 1.1; /* Resserre les lignes */
-}
-.hero h1 .Arimo {
-    font-family: 'Arimo', sans-serif;
-    font-size: 100px;
-    color: var(--color-accent);
+    line-height: 1.1;
 }
 
 .description {
     font-size: 18px;
-    color: #DDDDDD; /* Un blanc légèrement moins vif */
-   /* Limite la largeur du texte */
+    color: #DDDDDD;
     line-height: 1.6;
     text-align: center;
 }
 
 /* --- Style du Bouton (CTA) --- */
-/* --- LE BOUTON FUSIONNÉ --- */
 .cta-button {
     display: inline-block;
-    
-    /* STYLE (de votre Bouton 3) */
     background-color: var(--color-accent);
-    color: var(--color-background); /* Texte noir */
-    padding: 15px 25px; /* Taille de votre Bouton 3 */
+    color: var(--color-background);
+    padding: 15px 25px;
     margin-top: 30px;
     text-decoration: none;
-    font-family: 'red hat display', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
     font-weight: 700;
     font-size: 15px;
     letter-spacing: 1px;
     border: none;
-    border-radius: 15px; /* Arrondi de votre Bouton 3 */
+    border-radius: 15px;
     cursor: pointer;
-
-    /* EFFET 1 (3D Press du Bouton 1) */
-    box-shadow: 0 9px #887123; /* L'ombre 3D (couleur de votre Bouton 3) */
-    
-    /* Vitesse des animations */
-    transition: background-color 0.3s ease, color 0.3s ease, 
-                box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 9px #887123;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* --- EFFET 2 (Flèche du Bouton 2) --- */
-/* Cible le <span> qu'on a ajouté dans le HTML */
+/* Effet flèche cachée */
 .cta-button span {
     display: inline-block;
     position: relative;
-    transition: 0.5s; /* Animation du texte qui glisse */
+    transition: 0.5s;
 }
 
-/* La flèche (») cachée */
 .cta-button span:after {
-    content: '\00bb'; /* C'est le caractère '»' (flèche double) */
+    content: '\00bb';
     position: absolute;
-    opacity: 0; /* Cachée par défaut */
+    opacity: 0;
     top: 0;
-    right: -20px; /* Commence 20px à droite */
-    transition: 0.5s; /* Animation de la flèche */
+    right: -20px;
+    transition: 0.5s;
 }
 
-/* --- INTERACTIVITÉ AU SURVOL (HOVER) --- */
+/* Interaction Bouton : Survol */
 .cta-button:hover {
-    /* Style de votre Bouton 3 : Le fond change */
-    background-color: var(--color-text); /* Devient blanc */
-    color: var(--color-background);     /* Texte noir */
+    background-color: var(--color-text);
+    color: var(--color-background);
 }
 
-/* Effet du Bouton 2 : Le texte se décale */
 .cta-button:hover span {
     padding-right: 25px;
 }
 
-/* Effet du Bouton 2 : La flèche apparaît */
 .cta-button:hover span:after {
-    opacity: 1; /* Devient visible */
-    right: 0;   /* Se place à sa position finale */
+    opacity: 1;
+    right: 0;
 }
 
-/* --- INTERACTIVITÉ AU CLIC (ACTIVE) --- */
-/* Effet 1 (3D Press du Bouton 1) */
+/* Interaction Bouton : Clic */
 .cta-button:active {
-    box-shadow: 0 5px #887123; /* L'ombre devient plus petite */
-    transform: translateY(4px); /* Le bouton "s'enfonce" */
+    box-shadow: 0 5px #887123;
+    transform: translateY(4px);
 }
 
 
-
-/* --- Style de la nouvelle Section Collections --- */
+/* --- Style de la Section Collections --- */
 .collections {
-    background-color: var(--color-background); /* Garde le fond noir */
-    padding: 80px 0; /* Ajoute de l'espace en haut et en bas */
-    text-align: center; /* Centre tout le texte (titres, description) */
-    
-    /* Ajoute un trait de séparation avec la section du dessus */
+    background-color: var(--color-background);
+    padding: 80px 0;
+    text-align: center;
     border-top: 1px solid #333; 
 }
 
-/* Style pour le titre H2 de la section */
 .collections h2 {
-    font-family: var(--font-main-title); /* Police 'Lora' (serif) */
-    font-size: 56px; /* Un peu plus petit que le h1 principal */
+    font-family: var(--font-main-title);
+    font-size: 56px;
     font-weight: 400;
     color: var(--color-text);
     margin: 10px 0 25px 0;
 }
 
-/* Style pour la description (on la centre et limite sa largeur) */
 .section-description {
     font-size: 18px;
     color: #DDDDDD;
-    max-width: 600px; /* Limite la largeur pour une meilleure lisibilité */
-    margin: 0 auto 50px auto; /* Centre le paragraphe et ajoute de l'espace en dessous */
+    max-width: 600px;
+    margin: 0 auto 50px auto;
     line-height: 1.6;
 }
 
-/* --- Conteneur pour les 2 rituels (en Flexbox) --- */
+/* --- Conteneur des Rituels --- */
 .rituels-container {
-    display: flex; /* Aligne les éléments côte à côte */
-    justify-content: center; /* Centre les éléments horizontalement */
-    gap: 30px; /* Espace de 30px entre les deux rituels */
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-/* --- Style pour chaque rituel individuel --- */
+/* --- Style individuel Rituel --- */
 .rituel-item {
-    flex-basis: 45%; /* Chaque item prend environ 45% de la largeur */
-    min-width: 300px; /* Largeur minimale (utile pour le responsive) */
-    text-align: left; /* Aligne le texte du rituel à gauche (plus lisible) */
+    flex-basis: 45%;
+    min-width: 300px;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none; /* Enlève le soulignement du lien */
+    color: inherit;
+    transition: transform 0.3s ease;
 }
 
 .rituel-item img {
-    width: 100%; /* L'image prend 100% de la largeur de son conteneur */
-    height: auto; /* Garde les proportions de l'image */
+    width: 100%;
+    height: auto;
     margin-bottom: 15px;
-    border: 1px solid #222; /* Petite bordure pour voir l'image placeholder */
+    border: 1px solid #222;
+    transition: 0.5s ease; /* Fluidité de la transition */
+    backface-visibility: hidden;
+    opacity: 1;
+        display: block;
+}
+
+/* 2. Le texte qui apparaît (le .middle) */
+.rituel-middle {
+    transition: 0.5s ease;
+    opacity: 0; /* Caché par défaut */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+    text-align: center;
+    width: 100%; /* Prend toute la largeur pour le centrage */
+}
+
+/* 3. Le texte stylisé (le .text) */
+.rituel-text {
+    background-color: var(--color-accent); /* Couleur or/jaune */
+    color: var(--color-background); /* Texte noir sur le fond or */
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: inline-block; /* Pour que le padding fonctionne */
+}
+
+.rituel-item:hover img {
+    opacity: 0.3; /* L'image devient semi-transparente */
+}
+
+.rituel-item:hover .rituel-middle {
+    opacity: 1; /* Le texte apparaît */
+}
+
+/* Transition pour le changement de couleur */
+.rituel-item h3 {
+    transition: color 0.3s ease;
 }
 
 .rituel-item h3 {
-    font-family: var(--font-main-title); /* Police 'Lora' (serif) */
+    font-family: var(--font-main-title);
     font-size: 24px;
     color: var(--color-text);
     margin-bottom: 5px;
@@ -272,37 +285,47 @@ header nav {
     color: #DDDDDD;
 }
 
-/* --- DÉBUT DES STYLES D'ANIMATION AU DÉFILEMENT --- */
+/* --- EFFET DE SURVOL DES RITUELS (Le texte devient jaune) --- */
+.rituel-item:hover {
+    transform: translateY(-5px); /* Petit soulèvement */
+}
 
-/* 1. L'état initial (caché, décalé, et avec la transition) */
+/* Quand on survole le bloc, le titre devient jaune */
+.rituel-item:hover h3 {
+    color: var(--color-accent);
+}
+
+
+
+
+/* --- Styles d'Animation au Défilement (Scroll) --- */
+
+/* État initial : caché et plus bas */
 .js-scroll {
-    opacity: 0; /* Rendre invisible par défaut */
-    transform: translateY(40px); /* Décaler vers le bas de 40px */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Préparer l'animation */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* 2. L'état final (visible et à sa position normale) */
+/* État final : visible et à sa place */
 .js-scroll.is-visible {
-    opacity: 1; /* Rendre complètement visible */
-    transform: translateY(0); /* Ramener à la position d'origine */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
-/* --- Styles Responsives (pour petits écrans) --- */
+/* --- Styles Responsives (Mobile) --- */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 60px; /* Réduit la taille du titre */
+        font-size: 60px;
     }
-
     .subtitle {
-        font-size: 10px; /* Réduit la taille du sous-titre */
+        font-size: 10px;
     }
-
     .description {
-        font-size: 16px; /* Réduit la taille de la description */
+        font-size: 16px;
     }
-
     .nav-menu li {
-        margin-left: 20px; /* Réduit l'espacement du menu */
+        margin-left: 20px;
     }
 }
